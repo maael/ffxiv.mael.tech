@@ -1,0 +1,22 @@
+{
+  "name": "ffxiv.mael.tech",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Matthew Elphick <matt.a.elphy@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "node -r dotenv-extended/config server/index.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node -r dotenv-extended/config server/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv-extended": "^2.4.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19",
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}

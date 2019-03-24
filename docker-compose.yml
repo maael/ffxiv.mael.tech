@@ -1,0 +1,50 @@
+version: '3'
+
+networks:
+  proxy:
+    external: true
+  mongo:
+    internal: true
+
+services:
+  ffxiv:
+    # image: maael/ffxiv:latest
+    # build: ./
+    image: 99a165b34cda
+    restart: always
+    ports:
+      - 3000
+    labels:
+      - traefik.backend=ffxiv
+      - traefik.frontend.rule=Host:ffxiv.mael.tech
+      - traefik.docker.network=proxy
+      - traefik.port=3000
+    networks:
+      - proxy
+
+  mongo:
+    image: mongo
+    restart: always
+    expose:
+      - 27017
+      - 27018
+      - 27019
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081
+    labels:
+      - traefik.backend=ffxiv-db
+      - traefik.frontend.rule=Host:ffxiv-db.mael.tech
+      - traefik.docker.network=proxy
+      - traefik.port=8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+    networks:
+      - proxy
