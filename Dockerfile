@@ -11,4 +11,6 @@ COPY --from=build /repo .
 
 EXPOSE 3000
 
-CMD ["node", "-r dotenv-extended/config", "server/index.js"]
+ENTRYPOINT ["node", "-r", "dotenv-extended/config"]
+
+CMD ["server/index.js"]

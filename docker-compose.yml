@@ -8,12 +8,12 @@ networks:
 
 services:
   ffxiv:
-    # image: maael/ffxiv:latest
-    # build: ./
-    image: 99a165b34cda
+    image: maael/ffxiv:latest
     restart: always
     ports:
-      - 3000
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017/ffxiv
     labels:
       - traefik.backend=ffxiv
       - traefik.frontend.rule=Host:ffxiv.mael.tech
@@ -21,23 +21,28 @@ services:
       - traefik.port=3000
     networks:
       - proxy
+      - mongo
 
   mongo:
     image: mongo
+    hostname: mongo
     restart: always
     expose:
       - 27017
-      - 27018
-      - 27019
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: password
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/data/log
+    volumes:
+      - ./data/db:/data/db
+      - ./data/log:/data/log
+    networks:
+      - mongo
 
   mongo-express:
     image: mongo-express
     restart: always
     ports:
-      - 8081
+      - "8081:8081"
     labels:
       - traefik.backend=ffxiv-db
       - traefik.frontend.rule=Host:ffxiv-db.mael.tech
@@ -48,3 +53,4 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: password
     networks:
       - proxy
+      - mongo
