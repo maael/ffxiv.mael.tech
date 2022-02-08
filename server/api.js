@@ -1,8 +1,11 @@
 const router = require('express').Router()
 const mongoose = require('mongoose')
 const debounce = require('lodash.debounce')
+const multer  = require('multer')
+const memoryUpload = multer()
 const Mount = require('./models/Mount')
 const CachedRequest = require('./models/CachedRequest')
+const gchandins = require('./api/gchandins');
 
 const {MONGO_URI} = process.env
 
@@ -62,5 +65,7 @@ router.get('/xivapi/*', async (req, res) => {
   const saved = await request.save()
   res.send(saved)
 })
+
+router.post('/gchandins', memoryUpload.single('raw'), gchandins)
 
 module.exports = router;

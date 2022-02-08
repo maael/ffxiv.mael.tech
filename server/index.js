@@ -1,8 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const next = require('next')
-const fs = require('fs')
-const path = require('path')
 const api = require('./api')
 
 const {PORT, NODE_ENV} = process.env

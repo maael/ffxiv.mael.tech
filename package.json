@@ -11,13 +11,22 @@
     "start": "NODE_ENV=production node -r dotenv-extended/config server/index.js"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "body-parser": "^1.18.3",
     "dotenv-extended": "^2.4.0",
     "express": "^4.16.4",
+    "isomorphic-fetch": "^2.2.1",
     "lodash.debounce": "^4.0.8",
     "mongoose": "^5.4.19",
+    "multer": "^1.4.1",
     "next": "^8.0.3",
+    "next-compose-plugins": "^2.1.1",
+    "next-transpile-modules": "^2.2.0",
+    "rbx": "^2.1.0",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-image-crop": "^7.0.2",
+    "sharp": "^0.22.1",
+    "textract": "^2.4.0"
   }
 }

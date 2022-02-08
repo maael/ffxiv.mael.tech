@@ -1,3 +1,5 @@
 export default () => (
-  <h1>ffxiv.mael.tech</h1>
+  <>
+    <h1>This is a collection of Mael'a Niwa's useful tools.</h1>
+  </>
 );

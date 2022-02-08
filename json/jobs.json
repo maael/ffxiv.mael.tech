@@ -1,0 +1,69 @@
+{
+  "jobs": [
+    {
+      "name": "Warrior",
+      "abbrev": "WAR",
+      "role": "Tank"
+    },
+    {
+      "name": "Paladin",
+      "abbrev": "PLD",
+      "role": "Tank"
+    },
+    {
+      "name": "Dark Knight",
+      "abbrev": "DRK",
+      "role": "Tank"
+    },
+    {
+      "name": "White Mage",
+      "abbrev": "WHM",
+      "role": "Healer"
+    },
+    {
+      "name": "Scholar",
+      "abbrev": "SCH",
+      "role": "Healer"
+    },
+    {
+      "name": "Astrologian",
+      "abbrev": "AST",
+      "role": "Healer"
+    },
+    {
+      "name": "Monk",
+      "abbrev": "MNK",
+      "role": "DPS"
+    },
+    {
+      "name": "Dragoon",
+      "abbrev": "DRG",
+      "role": "DPS"
+    },
+    {
+      "name": "Bard",
+      "abbrev": "BRD",
+      "role": "DPS"
+    },
+    {
+      "name": "Machinest",
+      "abbrev": "MCH",
+      "role": "DPS"
+    },
+    {
+      "name": "Black Mage",
+      "abbrev": "BLM",
+      "role": "DPS"
+    },
+    {
+      "name": "Summoner",
+      "abbrev": "SMR",
+      "role": "DPS"
+    },
+    {
+      "name": "Red Mage",
+      "abbrev": "RDM",
+      "role": "DPS"
+    }
+  ]
+}
